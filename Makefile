@@ -1,3 +1,3 @@
 all:
-	javac Pair.java
-	javac PrintFactors.java
+	javac NumberInfo.java
+	javac PrintPrimeFactors.java
