@@ -13,7 +13,9 @@ public class PrintPrimeFactors {
 		do {
 			negative = false;
 			out.print("Enter a number: ");
+		try{
 			BigInteger input = scan.nextBigInteger();
+
 			String factorString = "";
 			ArrayList<BigInteger> factors;
 			if(input.compareTo(BigInteger.ZERO) < 0){
@@ -59,6 +61,12 @@ public class PrintPrimeFactors {
 				maxLen = thisLen;
 			out.print("Would you like to enter another number? (y/n) ");
 			response = scan.next();
+		}
+		catch(java.util.InputMismatchException e){
+			out.println("Enter an actual number you fag");
+			System.exit(0);
+		}
+
 		} while(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("yep") || response.equalsIgnoreCase("yeah") || response.equalsIgnoreCase("yeet"));
 		out.println("Numbers checked:");
 		for(int i = 0; i < info.size(); i++) {
@@ -98,12 +106,14 @@ public class PrintPrimeFactors {
 		ArrayList<BigInteger> factors = new ArrayList<>();
 		while(i.compareTo(num) <= 0) {
 			if(num.mod(i).equals(BigInteger.ZERO)){
+				out.println(i);
 				factors.add(i);
 				num = num.divide(i);
 				root = bigIntSqRootCeil(num);
 			}
 			else{
 				if(i.compareTo(root) >= 0) {
+					out.println(num);
 					factors.add(num);
 					return factors;
 				}
